@@ -1,5 +1,7 @@
 package com.application.onshoot.Models;
 
+import com.application.onshoot.Enums.Position;
+
 /**
  * Model class for an individual player
  * used by the team class to initialize and determine their ratings
@@ -10,7 +12,8 @@ public class Player {
     //General Info
     private String playerName;
     private int playerNumber;
-    private int overallRating;
+    private int overallRating; //Overall rating for display use only while computed ratings are used for team ratings
+    private Position position;
 
 
     //Offensive ratings
@@ -22,20 +25,21 @@ public class Player {
     //Defensive ratings
     private int perimeterDefenseRating;
     private int interiorDefenseRating;
-    private int blockRating;
+    private int reboundRating;
 
 
     //Gameplan/IQ ratings
     private int iqRating;
-    private int awarenessRating;
+    private int playmakingRating;
 
 
 
-    public Player(String playerName, int playerNumber, int overallRating, int threePtRating,
+    public Player(String playerName, Position position, int playerNumber, int overallRating, int threePtRating,
                   int midRangeRating, int finishingRating, int perimeterDefenseRating,
-                  int interiorDefenseRating, int blockRating, int iqRating, int awarenessRating) {
+                  int interiorDefenseRating, int reboundRating, int iqRating, int playmakingRating) {
 
         this.playerName = playerName;
+        this.position = position;
         this.playerNumber = playerNumber;
         this.overallRating = overallRating;
         this.threePtRating = threePtRating;
@@ -43,24 +47,30 @@ public class Player {
         this.finishingRating = finishingRating;
         this.perimeterDefenseRating = perimeterDefenseRating;
         this.interiorDefenseRating = interiorDefenseRating;
-        this.blockRating = blockRating;
+        this.reboundRating = reboundRating;
         this.iqRating = iqRating;
-        this.awarenessRating = awarenessRating;
+        this.playmakingRating = playmakingRating;
     }
 
     public int computeOffenseRating() {
-        //TODO calculate offense rating
-        return 0;
+        int sum = this.threePtRating + this.midRangeRating + this.finishingRating;
+        double realAvg = (double)sum / 3.0;
+
+        return (int) Math.round(realAvg);
     }
 
     public int computeDefenseRating() {
-        //TODO calculate offense rating
-        return 0;
+        int sum = this.perimeterDefenseRating + this.interiorDefenseRating + this.reboundRating;
+        double realAvg = (double)sum / 3.0;
+
+        return (int) Math.round(realAvg);
     }
 
     public int computeIntelligenceRating() {
-        //TODO calculate offense rating
-        return 0;
+        int sum = this.iqRating + this.playmakingRating;
+        double realAvg = (double)sum / 2.0;
+
+        return (int) Math.round(realAvg);
     }
 
     public String getPlayerName() {return this.playerName;}
@@ -71,9 +81,9 @@ public class Player {
     public int getFinishingRating() {return this.finishingRating;}
     public int getPerimeterDefenseRating() {return this.perimeterDefenseRating;}
     public int getInteriorDefenseRating() {return this.interiorDefenseRating;}
-    public int getBlockRating() {return this.blockRating;}
+    public int getReboundRating() {return this.reboundRating;}
     public int getIqRating() {return this.iqRating;}
-    public int getAwarenessRating() {return this.awarenessRating;}
+    public int getPlaymakingRating() {return this.playmakingRating;}
 
 
 

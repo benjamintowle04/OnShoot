@@ -1,19 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+tools:context=".IntroActivity">
+
+    <Button
+        android:id="@+id/explore_btn"
+        android:layout_width="138dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="65dp"
+        android:background="@color/nba_red"
+        android:text="Explore"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/team_game_btn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/home_screen_quote" />
+
+    <Button
+        android:id="@+id/player_game_btn"
+        android:layout_width="138dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="190dp"
+        android:background="@color/nba_red"
+        android:text="Player Game"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/team_game_btn" />
+
+    <Button
+        android:id="@+id/team_game_btn"
+        android:layout_width="138dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="53dp"
+        android:background="@color/nba_red"
+        android:text="Team Game"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/player_game_btn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/explore_btn" />
 
     <TextView
-        android:id="@+id/helloworld"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:id="@+id/home_screen_quote"
+        android:layout_width="395dp"
+        android:layout_height="238dp"
+        android:layout_marginTop="62dp"
+        android:layout_marginBottom="50dp"
+        android:text="Very cool NBA quote or fact inserted here"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/explore_btn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-</android.support.constraint.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
