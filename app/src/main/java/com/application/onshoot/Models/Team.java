@@ -27,6 +27,8 @@ public class Team {
     public int getStrategyRating() {return this.strategyRating;}
     public ArrayList<Player> getRoster() {return this.roster;}
     public int getTeamIndex() {return this.teamIndex;}
+    public void setCoach(Coach coach) {this.coach = coach;}
+    public Coach getCoach() {return this.coach;}
 
     public void setRoster(ArrayList<Player> players) {
         if (this.roster == null) {
